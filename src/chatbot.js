@@ -1,5 +1,7 @@
 window.onload = function () {
   let messageHistory = [];
+    const BACKEND_URL = 'https://advanced-ai-portfolio.onrender.com/api/chat';  
+  
   const personaPrompt = {
     default: "You are a helpful AI assistant on a portfolio site.",
     friendly: "You are a friendly and upbeat assistant.",
@@ -39,7 +41,7 @@ window.onload = function () {
     };
 
     try {
-      const res = await fetch('/api/chat', {
+        const res = await fetch(BACKEND_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
