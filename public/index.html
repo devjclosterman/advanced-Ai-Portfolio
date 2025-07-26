@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <title>Desert Forged AI Assistant</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/style.css">
   <script src="/public/chatbot.js" defer></script>
 </head>
 
 <body>
   <button id="chat-toggle">Chat</button>
-
   <div id="chatbox" class="hidden">
     <div id="chat-log"></div>
     <div style="display: flex;">
       <input id="user-input" placeholder="Say something..." />
       <button id="send-btn">Send</button>
-      <button id="clear-chat">🧹 Clear</button>
+      <button id="clear-chat">Clear</button>
     </div>
     <select id="persona">
       <option value="default">Default</option>
