@@ -1,0 +1,7 @@
+## 🧠 AI Chatbot
+
+This portfolio includes a GPT-powered assistant with selectable personas (Friendly, Sarcastic, Coach, etc). Try it live at:
+
+👉 [Live Demo](https://advanced-ai-portfolio.onrender.com)
+
+Built with FastAPI + OpenAI + Vanilla JS
