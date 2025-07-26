@@ -13,6 +13,18 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
 app = FastAPI()
 
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
+# Serve static files (CSS, JS, images)
+app.mount("/static", StaticFiles(directory="public"), name="static")
+
+# Serve index.html at root
+@app.get("/")
+async def root():
+    return FileResponse("public/index.html")
+
+
 # Allow cross-origin requests
 app.add_middleware(
     CORSMiddleware,
