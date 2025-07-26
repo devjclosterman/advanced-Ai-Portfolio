@@ -1,31 +1,28 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-import os
-import openai
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+import openai
 
-# Load .env from same folder as fastapi_app.py
+# Load environment variables from .env file
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
-
+# Initialize FastAPI app
 app = FastAPI()
 
-from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
-
-# Serve static files (CSS, JS, images)
+# Mount static files (CSS, JS, HTML) from the 'public' directory
 app.mount("/static", StaticFiles(directory="public"), name="static")
 
-# Serve index.html at root
+# Serve the frontend HTML at root URL
 @app.get("/")
 async def root():
     return FileResponse("public/index.html")
 
-
-# Allow cross-origin requests
+# Enable CORS (for dev/testing across domains)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -34,13 +31,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create OpenAI client
+# Initialize OpenAI client using v1 SDK
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# Data model for POST request
 class ChatRequest(BaseModel):
     model: str
     messages: list
 
+# Chat endpoint
 @app.post("/api/chat")
 async def chat(req: ChatRequest):
     try:
@@ -48,7 +47,6 @@ async def chat(req: ChatRequest):
             model=req.model,
             messages=req.messages
         )
-        return response
+        return response.model_dump()
     except Exception as e:
         return {"error": str(e)}
-
