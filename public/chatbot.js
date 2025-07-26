@@ -23,6 +23,11 @@ window.onload = function () {
     if (e.key === 'Enter') handleSend();
   });
 
+  document.getElementById('clear-chat').onclick = () => {
+  chatLog.innerHTML = '';
+  messageHistory = [];
+};
+
   async function handleSend() {
     const userText = userInput.value.trim();
     if (!userText) return;
