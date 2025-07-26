@@ -5,3 +5,75 @@ This portfolio includes a GPT-powered assistant with selectable personas (Friend
 👉 [Live Demo](https://advanced-ai-portfolio.onrender.com)
 
 Built with FastAPI + OpenAI + Vanilla JS
+
+ai-portfolio/
+├── backend/
+│   ├── fastapi_app.py       # FastAPI backend
+│   └── .env                 # Secrets (not committed to GitHub)
+├── public/                  # Frontend assets served via FastAPI
+│   ├── index.html
+│   ├── style.css
+│   └── chatbot.js
+├── requirements.txt         # Backend Python dependencies
+└── README.md
+
+
+git clone https://github.com/devjclosterman/advanced-Ai-Portfolio.git
+cd advanced-Ai-Portfolio
+
+Create a .env file in the backend/ folder:
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Install Backend Dependencies: 
+cd backend
+python -m venv venv
+venv\Scripts\activate  # On Windows
+source venv/bin/activate  # On macOS/Linux
+
+pip install -r ../requirements.txt
+
+Run the app from the root folder: 
+uvicorn backend.fastapi_app:app --host 0.0.0.0 --port 8000
+
+
+Deploying on Render: 
+Go to Render.com
+
+Click "New Web Service"
+
+Connect your GitHub repo
+
+Choose the following settings:
+
+Root Directory: ./
+
+Start Command:
+
+bash
+Copy
+Edit
+uvicorn backend.fastapi_app:app --host 0.0.0.0 --port 8000
+Build Command:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Add an Environment Variable:
+
+Key: OPENAI_API_KEY
+
+Value: your-openai-key
+
+Click Deploy
+
+✅ Features
+✨ Real-time AI chatbot powered by OpenAI GPT-4o
+
+🌐 FastAPI backend with full CORS support
+
+💅 Fully styled UI with dark theme, personality modes, and animations
+
+🔁 Chat memory & system persona switching
+
+☁️ Live on Render, code managed via GitHub
