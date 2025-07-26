@@ -1,0 +1,16 @@
+# Ignore secrets
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Node if used
+node_modules/
+
+# MacOS/Windows
+.DS_Store
+Thumbs.db

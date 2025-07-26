@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  color: white;
+  transition: background 0.4s, color 0.4s;
+}
+
+body.light-mode {
+  background: #f4f4f4;
+  color: #111;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#chat-toggle {
+  padding: 10px 20px;
+  background-color: #00c6ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.projects {
+  padding: 2rem;
+  text-align: center;
+}
+
+.projects .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+#chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: #2c2c54;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  z-index: 9999;
+}
+
+body.light-mode #chatbox {
+  background: #fff;
+  color: #111;
+}
+
+#chat-log {
+  height: 220px;
+  overflow-y: auto;
+  background: #3c3c6e;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.message.user {
+  text-align: right;
+  background: #007bff;
+  color: white;
+}
+
+.message.bot {
+  text-align: left;
+  background: #555;
+  color: white;
+}
+
+input[type="text"] {
+  width: calc(100% - 60px);
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+}
+
+#send-btn {
+  width: 50px;
+  padding: 8px;
+  background: #00c6ff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+.toolbar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 5px;
+}
+
+.toolbar select,
+.toolbar input[type="file"],
+.toolbar button {
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}
